@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { styled as muiStyled, alpha } from '@mui/material/styles';
 
@@ -10,9 +10,17 @@ import SearchIcon from '@mui/icons-material/Search';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 
+const UPPER_HEADER_HEIGHT: number = 65;
+
+const StyledHeaderContainer = styled(AppBar)<{ isHidden: boolean }>`
+  top: ${({ isHidden }) => (isHidden ? `-${UPPER_HEADER_HEIGHT}px` : 0)} !important;
+  transition: top 0.4s ease-out !important;
+`;
+
 const StyledToolbar = styled(Toolbar)`
   display: flex;
   justify-content: space-between;
+  height: ${UPPER_HEADER_HEIGHT}px;
 `;
 
 const SwitchersContainer = styled.div`
@@ -68,12 +76,30 @@ const StyledInputBase = muiStyled(InputBase)(({ theme }) => ({
 }));
 
 export const Header = () => {
+  const [isHidden, setIsHidden] = useState<boolean>(false);
+
+  const handlePageScroll = useCallback(() => {
+    const position: number = window.pageYOffset;
+    if (position > UPPER_HEADER_HEIGHT) {
+      setIsHidden(true);
+    } else {
+      setIsHidden(false);
+    }
+  }, []);
+
   const handleSearch = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     console.log('event', event.target.value);
   }, []);
 
+  useEffect(() => {
+    window.addEventListener('scroll', handlePageScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handlePageScroll);
+    };
+  }, [handlePageScroll]);
+
   return (
-    <AppBar>
+    <StyledHeaderContainer isHidden={isHidden}>
       <StyledToolbar>
         <Typography variant="h6" component="div">
           Currency List App
@@ -97,6 +123,6 @@ export const Header = () => {
           />
         </Search>
       </SearchContainer>
-    </AppBar>
+    </StyledHeaderContainer>
   );
 };
