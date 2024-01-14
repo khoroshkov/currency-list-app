@@ -12,6 +12,8 @@ export type CurrencyType = {
   currencyName: string | null;
   precision: number | null;
   banknoteRate: RateType | null;
+  country: string | null;
+  countryCode: string | null;
 };
 
 type CurrencyListProps = {

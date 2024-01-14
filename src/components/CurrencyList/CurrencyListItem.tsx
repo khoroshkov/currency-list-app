@@ -17,6 +17,17 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.mode === THEME_MODE.DARK ? colors.white : colors.gray15percent
 }));
 
+const ImageContainer = styled(Box)`
+  width: 30px;
+  height: 20px;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`;
+
 type CurrencyListItemProps = {
   currency: CurrencyType;
   baseCurrency?: string;
@@ -68,11 +79,31 @@ const ExchangeSection = ({ baseCurrency, exchangeRate }: ExchangeSectionProps) =
 export const CurrencyListItem = ({ baseCurrency, currency }: CurrencyListItemProps) => {
   const { t } = useTranslation(['common']);
 
-  const { currencyCode, currencyName, exchangeRate } = currency;
+  const { currencyCode, currencyName, exchangeRate, country, countryCode } = currency;
 
   return (
     <Item>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        {Boolean(countryCode) ? (
+          <Box sx={{ display: 'flex', gap: '20px' }}>
+            <ImageContainer>
+              <img
+                src={`/img/flags/${countryCode}.png`}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = '/img/flags/placeholder.png';
+                }}
+                alt={`flag of ${country}`}
+              />
+            </ImageContainer>
+            <Typography sx={{ fontWeight: 'light', fontSize: '18px' }}>{country}</Typography>
+          </Box>
+        ) : (
+          <Typography sx={{ fontWeight: 'light', fontSize: '14px' }}>
+            {t('result.not_available')}
+          </Typography>
+        )}
+
         <Typography sx={{ fontWeight: 'light', fontSize: '14px' }}>
           <strong>{t('result.currency_code')}:</strong> {currencyCode || t('result.not_available')}
         </Typography>
