@@ -1,0 +1,36 @@
+{
+  "button": {
+    "search": "Search"
+  },
+  "result": {
+    "found_currencies": "We found {{total}} currencies."
+  },
+  "type_selection": {
+    "btn_search_for_topic": "Browse for interesting topic",
+    "add_files_svg_title": "Text documents and the plus sign",
+    "search_topics_svg_title": "Search bar and output, non-readable"
+  },
+  "errors": {
+    "fetch_error": "Something went wrong while getting currencies list. Please try again.",
+    "error_occurred": "Sorry... there was an error...",
+    "try_again": "Lets try again"
+  },
+  "head": {
+    "title": "Build your AI quiz!",
+    "meta_description": "Currency List App - get all currencies and their exchange rates!"
+  },
+  "language_switcher": {
+    "form_label": "Language selector",
+    "lang_en": "English",
+    "lang_sk": "Slovakian",
+    "gb_flag_svg_title": "Flag of the United Kingdom",
+    "slovakia_flag_svg_title": "Flag of Slovakia"
+  },
+  "dark_theme_switcher": {
+    "form_label": "Dark theme switcher"
+  },
+  "footer": {
+    "about": "About",
+    "privacy_policy": "Privacy Policy"
+  }
+}
