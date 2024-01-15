@@ -9,12 +9,19 @@ import { THEME_MODE, colors } from 'theme';
 
 const Item = styled(Paper)(({ theme }) => ({
   display: 'flex',
+  [theme.breakpoints.down('md')]: {
+    flexDirection: 'column'
+  },
   justifyContent: 'space-between',
   minHeight: '80px',
-  backgroundColor: theme.palette.mode === THEME_MODE.DARK ? colors.gray35percent : colors.white,
+  backgroundColor:
+    theme.palette.mode === THEME_MODE.DARK ? colors.grayTransparent : colors.whiteTransparent,
   ...theme.typography.body2,
   padding: theme.spacing(1, 2),
-  color: theme.palette.mode === THEME_MODE.DARK ? colors.white : colors.gray15percent
+  color: theme.palette.mode === THEME_MODE.DARK ? colors.white : colors.gray15percent,
+  backgroundImage: 'none',
+  backdropFilter: 'blur(10px)',
+  border: theme.palette.mode === THEME_MODE.DARK ? `1px solid #595959` : '1px solid #404040'
 }));
 
 const ImageContainer = styled(Box)`

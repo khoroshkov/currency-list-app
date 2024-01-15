@@ -37,7 +37,9 @@ export const colors = {
   coolGrayText: '#686A7D',
   coolGrayIcon: '#9091A2',
   purple05sat60light: '#94949E',
-  purple15sat70light: '#ABABBA'
+  purple15sat70light: '#ABABBA',
+  grayTransparent: 'rgba(255, 255, 255, 0.09)',
+  whiteTransparent: 'rgba(255, 255, 255, 0.5)'
 };
 
 export enum THEME_MODE {
