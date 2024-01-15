@@ -8,7 +8,7 @@ import { Loader } from 'components/Loader';
 import { CurrencyList } from 'components/CurrencyList';
 
 const StyledContainer = styled(Container)`
-  margin-top: 140px;
+  margin-top: 114px;
 `;
 
 export const MainPage = () => {
@@ -23,12 +23,12 @@ export const MainPage = () => {
     : data.currenciesList;
 
   return (
-    <div>
+    <Container>
       <Header />
       <StyledContainer>
         {isLoading && <Loader />}
         {!isLoading && <CurrencyList baseCurrency={data.baseCurrency} currencies={currencies} />}
       </StyledContainer>
-    </div>
+    </Container>
   );
 };

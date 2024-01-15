@@ -11,13 +11,11 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <AppThemeProvider>
-        <div className="App">
-          <ErrorBoundary>
-            <Routes>
-              <Route path="/" element={<MainPage />} />
-            </Routes>
-          </ErrorBoundary>
-        </div>
+        <ErrorBoundary>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+          </Routes>
+        </ErrorBoundary>
       </AppThemeProvider>
     </QueryClientProvider>
   );
