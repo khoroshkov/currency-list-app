@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { useGetCurrencies } from 'hooks/useGetCurrencies';
 import { Container } from '@mui/material';
@@ -12,15 +13,21 @@ const StyledContainer = styled(Container)`
 
 export const MainPage = () => {
   const { data, isLoading } = useGetCurrencies();
+  const [searchParams] = useSearchParams();
+  const search = searchParams.get('s');
+
+  const currencies = search
+    ? data.currenciesList.filter((currency) =>
+        currency.currencyCode?.toLowerCase()?.startsWith(search)
+      )
+    : data.currenciesList;
 
   return (
     <div>
       <Header />
       <StyledContainer>
         {isLoading && <Loader />}
-        {!isLoading && (
-          <CurrencyList baseCurrency={data.baseCurrency} currencies={data.currenciesList} />
-        )}
+        {!isLoading && <CurrencyList baseCurrency={data.baseCurrency} currencies={currencies} />}
       </StyledContainer>
     </div>
   );

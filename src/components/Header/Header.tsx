@@ -1,6 +1,8 @@
 import React, { useCallback, useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { styled as muiStyled, alpha } from '@mui/material/styles';
+import { validateString } from 'utils/validateString';
 
 import { AppBar } from '@mui/material';
 import Typography from '@mui/material/Typography';
@@ -77,6 +79,8 @@ const StyledInputBase = muiStyled(InputBase)(({ theme }) => ({
 
 export const Header = () => {
   const [isHidden, setIsHidden] = useState<boolean>(false);
+  const [searchParams, setSearchParams] = useSearchParams({ s: '' });
+  const search = searchParams.get('s');
 
   const handlePageScroll = useCallback(() => {
     const position: number = window.pageYOffset;
@@ -87,9 +91,22 @@ export const Header = () => {
     }
   }, []);
 
-  const handleSearch = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('event', event.target.value);
-  }, []);
+  const handleSearch = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const searchInput = event.target.value.toLowerCase();
+
+      if (validateString(searchInput) || searchInput === '') {
+        setSearchParams(
+          (prevValue) => {
+            prevValue.set('s', searchInput);
+            return prevValue;
+          },
+          { replace: true }
+        );
+      }
+    },
+    [setSearchParams]
+  );
 
   useEffect(() => {
     window.addEventListener('scroll', handlePageScroll, { passive: true });
@@ -120,6 +137,7 @@ export const Header = () => {
             inputProps={{ 'aria-label': 'search' }}
             onChange={handleSearch}
             placeholder="Search…"
+            value={search}
           />
         </Search>
       </SearchContainer>
