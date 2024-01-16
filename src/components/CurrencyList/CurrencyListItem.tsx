@@ -20,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1, 2),
   color: theme.palette.mode === THEME_MODE.DARK ? colors.white : colors.gray15percent,
   backgroundImage: 'none',
-  backdropFilter: 'blur(10px)',
+  backdropFilter: 'blur(7px)',
   border: theme.palette.mode === THEME_MODE.DARK ? `1px solid #595959` : '1px solid #404040'
 }));
 

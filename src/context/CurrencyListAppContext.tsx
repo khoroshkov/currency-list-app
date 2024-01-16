@@ -5,12 +5,6 @@ import { THEME_MODE } from 'theme';
 export type CurrencyListContextValue = {
   toggleColorMode: () => void;
   colorMode: THEME_MODE;
-  //   quizTheme: string;
-  //   setQuizTheme: React.Dispatch<React.SetStateAction<string>>;
-  //   topics: ITopicWithSummary[];
-  //   setTopics: React.Dispatch<React.SetStateAction<ITopicWithSummary[] | []>>;
-  //   generatedQuiz: IGeneratedQuiz[] | [];
-  //   setGeneratedQuiz: React.Dispatch<React.SetStateAction<IGeneratedQuiz[] | []>>;
 };
 
 interface Props {
@@ -23,11 +17,7 @@ export const CurrencyListAppContext = createContext<CurrencyListContextValue | u
 
 export const CurrencyListAppContextProvider: React.FC<Props> = ({ children }) => {
   const savedColorMode = localStorage.getItem(SELECTED_THEME_MODE) || THEME_MODE.LIGHT;
-  // @ts-ignore-error
-  const [colorMode, setColorMode] = useState<THEME_MODE>(savedColorMode);
-  //   const [quizTheme, setQuizTheme] = useState<string>('');
-  //   const [topics, setTopics] = useState<ITopicWithSummary[]>([]);
-  //   const [generatedQuiz, setGeneratedQuiz] = useState<IGeneratedQuiz[] | []>([]);
+  const [colorMode, setColorMode] = useState<THEME_MODE>(savedColorMode as THEME_MODE);
 
   const toggleColorMode = useCallback(() => {
     setColorMode((prevMode) =>

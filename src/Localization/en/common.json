@@ -2,8 +2,12 @@
   "button": {
     "search": "Search"
   },
+  "placeHolders": {
+    "search_input": "Search..."
+  },
   "result": {
     "found_currencies": "We found {{total}} currencies.",
+    "not_found_currencies": "No currencies matching your search.",
     "currency_code": "Currency code",
     "currency_name": "Currency full name",
     "not_available": "Info not available",
@@ -12,18 +16,13 @@
     "sell": "Sell",
     "middle": "Middle"
   },
-  "type_selection": {
-    "btn_search_for_topic": "Browse for interesting topic",
-    "add_files_svg_title": "Text documents and the plus sign",
-    "search_topics_svg_title": "Search bar and output, non-readable"
-  },
   "errors": {
     "fetch_error": "Something went wrong while getting currencies list. Please try again.",
     "error_occurred": "Sorry... there was an error...",
     "try_again": "Lets try again"
   },
   "head": {
-    "title": "Build your AI quiz!",
+    "title": "Currency List App",
     "meta_description": "Currency List App - get all currencies and their exchange rates!"
   },
   "language_switcher": {

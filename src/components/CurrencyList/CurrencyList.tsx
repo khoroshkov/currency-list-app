@@ -1,9 +1,9 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { RateType } from 'hooks/useGetCurrencies';
-import { Container, Divider, Typography, Stack } from '@mui/material';
+import { Container, Divider, Stack } from '@mui/material';
 import { CurrencyListItem } from './CurrencyListItem';
+import { ResultHeader } from './ResultHeader';
 
 export type CurrencyType = {
   exchangeRate: RateType | null;
@@ -22,12 +22,9 @@ type CurrencyListProps = {
 };
 
 export const CurrencyList = ({ baseCurrency, currencies }: CurrencyListProps) => {
-  const { t } = useTranslation(['common']);
   return (
     <Container>
-      <Typography variant="h4" align="center" aria-live="polite" mb={2}>
-        {t('result.found_currencies', { total: currencies.length })}
-      </Typography>
+      <ResultHeader total={currencies.length} />
       <Divider />
       <Stack spacing={2} mt={2}>
         {currencies.map((currency) => (
