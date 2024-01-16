@@ -1,36 +1,42 @@
 {
   "button": {
-    "search": "Search"
+    "search": "Vyhľadávanie"
+  },
+  "placeHolders": {
+    "search_input": "Vyhľadávanie..."
   },
   "result": {
-    "found_currencies": "We found {{total}} currencies."
-  },
-  "type_selection": {
-    "btn_search_for_topic": "Browse for interesting topic",
-    "add_files_svg_title": "Text documents and the plus sign",
-    "search_topics_svg_title": "Search bar and output, non-readable"
+    "found_currencies": "Našli sme {{total}} meny.",
+    "not_found_currencies": "Vášmu vyhľadávaniu nezodpovedajú žiadne meny.",
+    "currency_code": "Kód meny",
+    "currency_name": "Celý názov meny",
+    "not_available": "Informácie nie sú k dispozícii",
+    "exchange_rate": "Výmenné kurzy",
+    "buy": "Kúpiť",
+    "sell": "Predať",
+    "middle": "Stredný"
   },
   "errors": {
-    "fetch_error": "Something went wrong while getting currencies list. Please try again.",
-    "error_occurred": "Sorry... there was an error...",
-    "try_again": "Lets try again"
+    "fetch_error": "Pri získavaní zoznamu mien sa vyskytla chyba. Prosím skúste znova.",
+    "error_occurred": "Prepáčte, vyskytla sa chyba...",
+    "try_again": "Skúsme to opäť"
   },
   "head": {
-    "title": "Build your AI quiz!",
-    "meta_description": "Currency List App - get all currencies and their exchange rates!"
+    "title": "Currency List App",
+    "meta_description": "Currency List App - získať všetky meny a ich výmenné kurzy!"
   },
   "language_switcher": {
-    "form_label": "Language selector",
+    "form_label": "Výber jazyka",
     "lang_en": "English",
     "lang_sk": "Slovakian",
-    "gb_flag_svg_title": "Flag of the United Kingdom",
-    "slovakia_flag_svg_title": "Flag of Slovakia"
+    "gb_flag_svg_title": "Vlajka Spojeného kráľovstva",
+    "slovakia_flag_svg_title": "Vlajka Slovenska"
   },
   "dark_theme_switcher": {
-    "form_label": "Dark theme switcher"
+    "form_label": "Prepínač tmavých tém"
   },
   "footer": {
-    "about": "About",
-    "privacy_policy": "Privacy Policy"
+    "about": "O",
+    "privacy_policy": "Zásady ochrany osobných údajov"
   }
 }

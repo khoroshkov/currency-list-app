@@ -1,5 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { styled as muiStyled, alpha } from '@mui/material/styles';
 import { validateString } from 'utils/validateString';
@@ -78,6 +79,8 @@ const StyledInputBase = muiStyled(InputBase)(({ theme }) => ({
 }));
 
 export const Header = () => {
+  const { t } = useTranslation(['common']);
+
   const [isHidden, setIsHidden] = useState<boolean>(false);
   const [searchParams, setSearchParams] = useSearchParams({ s: '' });
   const search = searchParams.get('s');
@@ -119,7 +122,7 @@ export const Header = () => {
     <StyledHeaderContainer isHidden={isHidden}>
       <StyledToolbar>
         <Typography variant="h6" component="div">
-          Currency List App
+          {t('head.title')}
         </Typography>
 
         <SwitchersContainer>
@@ -136,7 +139,7 @@ export const Header = () => {
             autoFocus
             inputProps={{ 'aria-label': 'search' }}
             onChange={handleSearch}
-            placeholder="Search…"
+            placeholder={t('placeHolders.search_input')}
             value={search}
           />
         </Search>
