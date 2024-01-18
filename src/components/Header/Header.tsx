@@ -15,8 +15,8 @@ import { LanguageSwitcher } from './components/LanguageSwitcher';
 
 const UPPER_HEADER_HEIGHT: number = 65;
 
-const StyledHeaderContainer = styled(AppBar)<{ isHidden: boolean }>`
-  top: ${({ isHidden }) => (isHidden ? `-${UPPER_HEADER_HEIGHT}px` : 0)} !important;
+const StyledHeaderContainer = styled(AppBar)<{ $isHidden: boolean }>`
+  top: ${({ $isHidden }) => ($isHidden ? `-${UPPER_HEADER_HEIGHT}px` : 0)} !important;
   transition: top 0.4s ease-out !important;
 `;
 
@@ -119,7 +119,7 @@ export const Header = () => {
   }, [handlePageScroll]);
 
   return (
-    <StyledHeaderContainer isHidden={isHidden}>
+    <StyledHeaderContainer $isHidden={isHidden}>
       <StyledToolbar>
         <Typography variant="h6" component="div">
           {t('head.title')}

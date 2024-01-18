@@ -28,7 +28,7 @@ export const ErrorPlaceholder = () => {
   const { t } = useTranslation(['common']);
 
   return (
-    <Container>
+    <Container data-testid="error-placeholder-section">
       <SvgIconWrapper>
         <ErrorIcon color="primary" />
       </SvgIconWrapper>

@@ -23,12 +23,16 @@ type CurrencyListProps = {
 
 export const CurrencyList = ({ baseCurrency, currencies }: CurrencyListProps) => {
   return (
-    <Container>
+    <Container data-testid="currency-list-section">
       <ResultHeader total={currencies.length} />
       <Divider />
       <Stack spacing={2} mt={2}>
-        {currencies.map((currency) => (
-          <CurrencyListItem baseCurrency={baseCurrency} currency={currency} />
+        {currencies.map((currency: CurrencyType) => (
+          <CurrencyListItem
+            key={currency.currencyCode}
+            baseCurrency={baseCurrency}
+            currency={currency}
+          />
         ))}
       </Stack>
     </Container>

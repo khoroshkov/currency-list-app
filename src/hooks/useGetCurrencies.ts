@@ -27,7 +27,7 @@ type ResponseData = {
   lastUpdated: string;
 };
 
-type SearchResponse = {
+export type SearchResponse = {
   data?: ResponseData;
 };
 
