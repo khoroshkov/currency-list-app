@@ -1,16 +1,19 @@
 import React from 'react';
 import { arrayRange } from 'utils/arrayRange';
 
-import { Stack, Skeleton, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Stack, Skeleton, useMediaQuery, useTheme } from '@mui/material';
 
 export const Loader = () => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
-    <Stack spacing={3}>
+    <Stack spacing={3} data-testid="loader-section">
       {arrayRange(1, 10).map((i: number) => (
-        <React.Fragment key={i}>
+        <Box
+          key={i}
+          data-testid={`currencies-loading-row-${i}`}
+          sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           <Skeleton
             animation="wave"
             variant="rounded"
@@ -23,7 +26,7 @@ export const Loader = () => {
             width={isDesktop ? 860 : '100%'}
             height={50}
           />
-        </React.Fragment>
+        </Box>
       ))}
     </Stack>
   );

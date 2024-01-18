@@ -18,10 +18,10 @@ export const MainPage = () => {
   const search = searchParams.get('s');
 
   const currencies = search
-    ? data.currenciesList.filter((currency) =>
+    ? data?.currenciesList.filter((currency) =>
         currency.currencyCode?.toLowerCase()?.startsWith(search)
       )
-    : data.currenciesList;
+    : data?.currenciesList;
 
   return (
     <Container>
@@ -29,7 +29,9 @@ export const MainPage = () => {
       <StyledContainer>
         <>
           {isLoading && <Loader />}
-          {!isLoading && <CurrencyList baseCurrency={data.baseCurrency} currencies={currencies} />}
+          {!isLoading && data && (
+            <CurrencyList baseCurrency={data?.baseCurrency} currencies={currencies} />
+          )}
           {!isLoading && error && <ErrorPlaceholder />}
         </>
       </StyledContainer>

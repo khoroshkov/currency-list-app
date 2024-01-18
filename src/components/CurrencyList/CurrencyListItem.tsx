@@ -53,6 +53,7 @@ const ExchangeSection = ({ baseCurrency, exchangeRate }: ExchangeSectionProps) =
         <Typography sx={{ display: 'inline' }}>
           <strong>{t('result.exchange_rate')}: </strong>
           <Typography
+            component="span"
             sx={{ display: 'inline-block', fontWeight: 'light', fontSize: '14px', width: '165px' }}>
             {t('result.not_available')}
           </Typography>
@@ -89,7 +90,7 @@ export const CurrencyListItem = ({ baseCurrency, currency }: CurrencyListItemPro
   const { currencyCode, currencyName, exchangeRate, country, countryCode } = currency;
 
   return (
-    <Item>
+    <Item data-testid="currency-list-item">
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         {Boolean(countryCode) ? (
           <Box sx={{ display: 'flex', gap: '20px' }}>

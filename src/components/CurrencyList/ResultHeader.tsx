@@ -33,13 +33,13 @@ export const ResultHeader = ({ total }: ResultHeaderProps) => {
   return (
     <>
       {total === 0 ? (
-        <Container>
+        <Container data-testid="currency-list-no-result-header">
           <Typography variant="h5" aria-live="polite" align="center">
             {t('result.not_found_currencies')}
           </Typography>
         </Container>
       ) : (
-        <Container>
+        <Container data-testid="currency-list-result-header">
           <Typography variant="h5" aria-live="polite" align="center">
             {t('result.found_currencies', { total })}
           </Typography>
