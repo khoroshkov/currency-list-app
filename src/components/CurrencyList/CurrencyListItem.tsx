@@ -5,7 +5,7 @@ import { RateType } from 'hooks/useGetCurrencies';
 import { Box, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { CurrencyType } from './CurrencyList';
-import { THEME_MODE, colors } from 'theme';
+import { THEME_MODE, colors, borders } from 'theme';
 
 const Item = styled(Paper)(({ theme }) => ({
   display: 'flex',
@@ -21,7 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.mode === THEME_MODE.DARK ? colors.white : colors.gray15percent,
   backgroundImage: 'none',
   backdropFilter: 'blur(7px)',
-  border: theme.palette.mode === THEME_MODE.DARK ? `1px solid #595959` : '1px solid #404040'
+  border: theme.palette.mode === THEME_MODE.DARK ? borders.lightBorder : borders.grayBorder
 }));
 
 const ImageContainer = styled(Box)`

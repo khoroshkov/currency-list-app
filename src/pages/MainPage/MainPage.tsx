@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { useGetCurrencies } from 'hooks/useGetCurrencies';
@@ -17,11 +17,13 @@ export const MainPage = () => {
   const [searchParams] = useSearchParams();
   const search = searchParams.get('s');
 
-  const currencies = search
-    ? data?.currenciesList.filter((currency) =>
-        currency.currencyCode?.toLowerCase()?.startsWith(search)
-      )
-    : data?.currenciesList;
+  const currencies = useMemo(() => {
+    return search
+      ? data?.currenciesList.filter((currency) =>
+          currency.currencyCode?.toLowerCase()?.startsWith(search)
+        )
+      : data?.currenciesList;
+  }, [search, data?.currenciesList]);
 
   return (
     <Container>

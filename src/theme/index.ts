@@ -46,3 +46,8 @@ export enum THEME_MODE {
   LIGHT = 'light',
   DARK = 'dark'
 }
+
+export const borders = {
+  lightBorder: '1px solid #7f7f7f',
+  grayBorder: '1px solid #404040'
+};

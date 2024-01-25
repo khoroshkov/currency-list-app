@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 import { CurrencyListAppContext, CurrencyListContextValue } from 'context';
 
-import { colors } from 'theme';
+import { colors, THEME_MODE } from 'theme';
 
 export const ThemeSwitcher = () => {
   const { t } = useTranslation(['common']);
@@ -32,12 +32,15 @@ export const ThemeSwitcher = () => {
         '& + .MuiSwitch-track': {
           opacity: 1,
           backgroundColor:
-            theme.palette.mode === 'dark' ? colors.purple05sat60light : colors.purple15sat70light
+            theme.palette.mode === THEME_MODE.DARK
+              ? colors.purple05sat60light
+              : colors.purple15sat70light
         }
       }
     },
     '& .MuiSwitch-thumb': {
-      backgroundColor: theme.palette.mode === 'dark' ? colors.deepPurpleGray : colors.darkIndigo,
+      backgroundColor:
+        theme.palette.mode === THEME_MODE.DARK ? colors.deepPurpleGray : colors.darkIndigo,
       width: 32,
       height: 32,
       '&:before': {
@@ -58,12 +61,14 @@ export const ThemeSwitcher = () => {
     '& .MuiSwitch-track': {
       opacity: 1,
       backgroundColor:
-        theme.palette.mode === 'dark' ? colors.purple05sat60light : colors.purple15sat70light,
+        theme.palette.mode === THEME_MODE.DARK
+          ? colors.purple05sat60light
+          : colors.purple15sat70light,
       borderRadius: 20 / 2
     }
   }));
 
-  const isChecked = colorMode === 'dark';
+  const isChecked = colorMode === THEME_MODE.DARK;
 
   return (
     <MaterialUISwitch
