@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
-import { THEME_MODE, colors } from 'theme';
+import { THEME_MODE, colors, borders } from 'theme';
 
 const Container = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -20,7 +20,7 @@ const Container = styled(Box)(({ theme }) => ({
   margin: '0 auto 16px auto',
   color: theme.palette.mode === THEME_MODE.DARK ? colors.white : colors.gray15percent,
   backdropFilter: 'blur(4px)',
-  border: theme.palette.mode === THEME_MODE.DARK ? `1px solid #595959` : '1px solid #ECECEC'
+  border: theme.palette.mode === THEME_MODE.DARK ? borders.lightBorder : borders.grayBorder
 }));
 
 type ResultHeaderProps = {
